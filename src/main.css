@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin-left: 7%;
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+
+.section-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.score {
+  border: none;
+  border-radius: 8px;
+}
+
+.scores-title {
+  font-size: 2rem;
+}
+
+.score-list {
+  padding: 1rem 2rem;
+  max-width: 500px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem 0;
+}
+
+form button {
+  align-self: flex-end;
+}
+
+.score-container {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
