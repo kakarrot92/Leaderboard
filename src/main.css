@@ -52,3 +52,8 @@ form button {
   margin-bottom: 1rem;
   padding: 0 1rem;
 }
+
+.add-score {
+  padding: 2rem;
+  max-height: 250px;
+}
