@@ -129,6 +129,28 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/app/api.js":
+/*!************************!*\
+  !*** ./src/app/api.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"sendItem\": () => (/* binding */ sendItem),\n/* harmony export */   \"sendScore\": () => (/* binding */ sendScore),\n/* harmony export */   \"getScores\": () => (/* binding */ getScores)\n/* harmony export */ });\nconst userInput = document.querySelector('#name');\nconst scoreInput = document.querySelector('#score');\n\nconst sendItem = () => {\n  fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {\n    method: 'POST',\n    headers: {\n      Accept: 'application/json',\n      'Content-Type': 'application/json',\n    },\n    body: JSON.stringify({ name: 'Some game' }),\n  });\n};\n\nconst sendScore = () => {\n  fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/nONLcYfe5VIS7yt3lQIO/scores/', {\n    method: 'POST',\n    headers: {\n      Accept: 'application/json',\n      'Content-Type': 'application/json',\n    },\n    body: JSON.stringify({ user: userInput.value, score: scoreInput.value }),\n  });\n};\n\nconst getScores = async () => {\n  const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/nONLcYfe5VIS7yt3lQIO/scores/';\n  const data = await fetch(url);\n  const content = await data.json();\n  return content.result;\n};\n\n\n\n//# sourceURL=webpack://leaderboard/./src/app/api.js?");
+
+/***/ }),
+
+/***/ "./src/app/createElement.js":
+/*!**********************************!*\
+  !*** ./src/app/createElement.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api.js */ \"./src/app/api.js\");\n\n\nconst scoreBoard = document.querySelector('.score-list');\n\nconst render = async () => {\n  scoreBoard.innerHTML = '';\n  const data = await (0,_api_js__WEBPACK_IMPORTED_MODULE_0__.getScores)();\n  const list = data.map((item) => {\n    const listItem = `<li class=\"list-item\"><p>${item.user}:</p> <p>${item.score}</p></li>`;\n    return listItem;\n  });\n  scoreBoard.innerHTML = list.join();\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (render);\n\n\n//# sourceURL=webpack://leaderboard/./src/app/createElement.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -136,7 +158,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main.css */ \"./src/main.css\");\n// eslint-disable-next-line no-unused-vars\n\n\n\n//# sourceURL=webpack://leaderboard/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main.css */ \"./src/main.css\");\n/* harmony import */ var _app_api_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/api.js */ \"./src/app/api.js\");\n/* harmony import */ var _app_createElement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/createElement.js */ \"./src/app/createElement.js\");\n// eslint-disable-next-line no-unused-vars\n\n\n\n\n\nconst refreshBtn = document.querySelector('.refresh');\nconst form = document.getElementById('form');\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  refreshBtn.addEventListener('click', async () => {\n    (0,_app_createElement_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n  });\n});\n\nform.addEventListener('submit', async (e) => {\n  e.preventDefault();\n  const name = document.getElementById('name');\n  const score = document.getElementById('score');\n  (0,_app_api_js__WEBPACK_IMPORTED_MODULE_2__.sendScore)();\n  name.value = '';\n  score.value = '';\n\n  (0,_app_createElement_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n});\n\n//# sourceURL=webpack://leaderboard/./src/index.js?");
 
 /***/ })
 
