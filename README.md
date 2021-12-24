@@ -7,7 +7,7 @@
 >Projects Screenshots
 
 ### 
-![screenshot]()
+![screenshot](./leaderboard.png)
 
 
 ## Built With
@@ -20,6 +20,7 @@
 ## Live Demo
 
 [Live Demo Link]()
+
 
 ## Getting Started
 
