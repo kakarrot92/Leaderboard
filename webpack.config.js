@@ -1,5 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const merge = require('lodash.merge');
+/* eslint-enable */
 
 module.exports = {
   mode: 'development',
@@ -26,3 +29,10 @@ module.exports = {
     ],
   },
 };
+const productionConfig = merge([ //eslint-disable-line
+  {
+    output: {
+      publicPath: '/Leaderboard/',
+    },
+  },
+]);
