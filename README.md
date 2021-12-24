@@ -19,7 +19,7 @@
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://kakarrot92.github.io/Leaderboard/)
 
 
 ## Getting Started
